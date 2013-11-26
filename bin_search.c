@@ -10,6 +10,20 @@ struct Nameval {
   Nameval *left, *right;
 };
 
+Nameval *lookup(Nameval *treep, char *name) {
+  if (treep == NULL) {
+    return NULL;
+  }
+  int cmp = strcmp(name, treep->name);
+  if (cmp == 0) {
+    return treep;
+  } else if (cmp < 0) {
+    return lookup(treep->left, name);
+  } else {
+    return lookup(treep->right, name);
+  }
+}
+
 Nameval *insert(Nameval *treep, Nameval *newp) {
   if (treep == NULL) {
     treep = newp;
@@ -42,4 +56,5 @@ int main() {
   insert(&joe, &bill);
   insert(&joe, &frank);
   printTree(&joe);
+  printTree(lookup(&joe, "Frank"));
 }

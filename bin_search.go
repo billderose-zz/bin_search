@@ -11,6 +11,20 @@ type Nameval struct {
 	left, right *Nameval
 }
 
+func (treep *Nameval) lookup(name string) *Nameval {
+	if treep == nil {
+		return nil
+	}
+	cmp := bytes.Compare([]byte(name), []byte(treep.name))
+	if cmp == 0 {
+		return treep
+	} else if cmp < 0 {
+		return treep.left.lookup(name)
+	} else {
+		return treep.right.lookup(name)
+	}
+}
+
 func (treep *Nameval) insert(newp *Nameval) *Nameval {
 	if treep == nil {
 		return newp
@@ -42,4 +56,5 @@ func main() {
 	joe.insert(bill)
 	joe.insert(frank)
 	joe.Print()
+	joe.lookup("Frank").Print()
 }
