@@ -1,0 +1,1 @@
+Taken from examples in *The Practice of Programming*. I decided to compare their implementation to one in Go. One of the notable differences comes with the struct declaration; Go allows recursive definitions whereas C does not.
