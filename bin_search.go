@@ -50,11 +50,13 @@ func (treep *Nameval) Print() {
 }
 
 func main() {
-	joe := &Nameval{name: "Joe"}
-	bill := &Nameval{name: "Bill"}
-	frank := &Nameval{name: "Frank"}
-	joe.insert(bill)
-	joe.insert(frank)
-	joe.Print()
-	joe.lookup("Frank").Print()
+	foo := &Nameval{name: "foo"}
+	bar := &Nameval{name: "bar"}
+	derp := &Nameval{name: "derp"}
+	eleph := &Nameval{name: "eleph"}
+	foo.insert(bar)
+	foo.insert(derp)
+	foo.insert(eleph)
+	foo.Print()
+	foo.lookup("derp").Print()
 }

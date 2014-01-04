@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 typedef struct Nameval Nameval;
 
 struct Nameval {
@@ -50,11 +51,13 @@ void printTree(Nameval* treep) {
 }
 
 int main() {
-  Nameval joe = (Nameval) {.name = "Joe"};
-  Nameval bill = (Nameval) {.name = "Bill"};
-  Nameval frank = (Nameval) {.name = "Frank"};
-  insert(&joe, &bill);
-  insert(&joe, &frank);
-  printTree(&joe);
-  printTree(lookup(&joe, "Frank"));
+  Nameval foo = (Nameval) {.name = "foo"};
+  Nameval bar = (Nameval) {.name = "bar"};
+  Nameval derp = (Nameval) {.name = "derp"};
+  Nameval eleph = (Nameval) {.name = "elep"};
+  insert(&foo, &bar);
+  insert(&foo, &derp);
+  insert(&foo, &eleph);
+  printTree(&foo);
+  printTree(lookup(&foo, "derp"));
 }
